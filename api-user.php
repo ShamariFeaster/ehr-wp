@@ -13,6 +13,9 @@ if(isset($_GET['action'])){
 			}
 			echo $res;
 			break;
+		case 'isloggedin':
+			echo '{"response" : ' . is_user_logged_in() . '}';
+			break;
 	}
 }
 
