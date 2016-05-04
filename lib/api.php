@@ -1,4 +1,5 @@
 <?php
+//https://github.com/mevdschee/php-crud-api
 //var_dump($_SERVER['REQUEST_METHOD'],$_SERVER['PATH_INFO']); die();
 require_once(  dirname(dirname( __FILE__ ))  . '/wp-load.php' );
 

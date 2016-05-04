@@ -1,18 +1,6 @@
 
+
 # BEGIN WordPress
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /src/ehr/
 
-RewriteCond %{REQUEST_FILENAME} \.html$
-RewriteRule ^(.*)\.html$ /src/ehr/$1
-
-RewriteRule ^index\.php$ - [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /src/ehr/index.php [L]
-
-</IfModule>
 
 # END WordPress

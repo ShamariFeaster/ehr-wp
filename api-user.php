@@ -16,6 +16,15 @@ if(isset($_GET['action'])){
 		case 'isloggedin':
 			echo '{"response" : ' . is_user_logged_in() . '}';
 			break;
+		case 'authenticate':
+			$res = wp_authenticate($_GET['un'],$_GET['pw']);
+			if(is_wp_error( $res )){
+				echo '{"response" : true}';
+			}else{
+				echo '{"response" : false}';
+			}
+			
+			break;
 	}
 }
 

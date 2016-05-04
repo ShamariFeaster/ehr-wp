@@ -2891,7 +2891,7 @@ function wp_get_recent_posts( $args = array(), $output = ARRAY_A ) {
  * @param bool  $wp_error Optional. Whether to allow return of WP_Error on failure. Default false.
  * @return int|WP_Error The post ID on success. The value 0 or WP_Error on failure.
  */
-function wp_insert_post( $postarr, $wp_error = false ) {
+function wp_insert_post( $postarr, $wp_error = false, $sanitize = true ) {
 	global $wpdb;
 
 	$user_id = get_current_user_id();
@@ -2919,8 +2919,12 @@ function wp_insert_post( $postarr, $wp_error = false ) {
 	$postarr = wp_parse_args($postarr, $defaults);
 
 	unset( $postarr[ 'filter' ] );
-
-	$postarr = sanitize_post($postarr, 'db');
+	if($sanitize == false){
+		$postarr = sanitize_post($postarr, 'raw');
+	}else{
+		$postarr = sanitize_post($postarr, 'db');
+	}
+	
 
 	// Are we updating or creating?
 	$post_ID = 0;

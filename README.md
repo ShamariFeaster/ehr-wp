@@ -11,3 +11,5 @@ themes/twentysixteen/
 -content-page
 
 404 - made to return 404 status code and passes back json object indicating as much
+
+installing gulp, gulp-rename, gulp-exec
