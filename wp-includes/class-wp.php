@@ -605,7 +605,7 @@ class WP {
 			return;
 
 		// Never 404 for the admin, robots, or if we found posts.
-		if ( is_admin() || is_robots() || $wp_query->posts ) {
+		if ( is_admin() || is_robots() || $wp_query->posts) {
 
 			$success = true;
 			if ( is_singular() ) {

@@ -3360,7 +3360,10 @@ function wp_insert_post( $postarr, $wp_error = false, $sanitize = true ) {
 		 * @param WP_Post $post_after   Post object following the update.
 		 * @param WP_Post $post_before  Post object before the update.
 		 */
-		do_action( 'post_updated', $post_ID, $post_after, $post_before);
+		 if($sanitize == true){
+			do_action( 'post_updated', $post_ID, $post_after, $post_before);
+		 }
+		
 	}
 
 	/**

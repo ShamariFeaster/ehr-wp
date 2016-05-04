@@ -23,6 +23,7 @@ $auths[] = 'administrator';
 $all = array('administrator','doctor','manager','technician');
 //wp is serializing meta on its end
 $post['meta_input'] = array('_mkdo_rcbr_roles' => $auths);
+$post['meta_input']['_mkdo_rcbr_restrict_sub_content'] = 'all';
 
 $post['post_author'] = 1;
 
@@ -31,9 +32,9 @@ if(array_search('public', $auths) !== false){
 	unset($post['meta_input']);
 
 }else if(array_search('all', $auths) !== false){
-	$post['meta_input'] = $all;
+	$post['meta_input']['_mkdo_rcbr_roles'] = $all;
 }
-
+//_mkdo_rcbr_restrict_sub_content
 $action = ($post['ID'] == 0) ? 'inserted' : 'updated';
 
 $id = wp_insert_post( $post, true, false );
